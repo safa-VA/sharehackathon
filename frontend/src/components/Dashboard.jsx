@@ -17,7 +17,8 @@ function Dashboard({ user, onLogout }) {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/resources')
+      const res = await axios.get('https://sharehackathon-sork.vercel.app
+/resources')
       const allResources = res.data
       
       const posted = allResources.filter(r => r.ownerName === user.fullName)
@@ -46,7 +47,8 @@ function Dashboard({ user, onLogout }) {
 
   const handleApprove = async (id, title) => {
     try {
-      await axios.post(`http://localhost:8000/resources/${id}/approve`)
+      await axios.post(`https://sharehackathon-sork.vercel.app
+/resources/${id}/approve`)
       setToast({ show: true, msg: `Request for "${title}" approved! The student has been notified.`, type: 'success' })
       fetchData()
     } catch (err) { alert('Error approving') }
@@ -54,7 +56,8 @@ function Dashboard({ user, onLogout }) {
 
   const handleReject = async (id) => {
     if (confirm('Are you sure you want to reject this request?')) {
-      await axios.post(`http://localhost:8000/resources/${id}/reject`)
+      await axios.post(`https://sharehackathon-sork.vercel.app
+/resources/${id}/reject`)
       setToast({ show: true, msg: `Request rejected.`, type: 'success' })
       fetchData()
     }
@@ -64,7 +67,8 @@ function Dashboard({ user, onLogout }) {
     try {
       const notes = prompt("📝 Enter condition notes (e.g., 'Perfect condition' or 'Minor wear'):")
       if (notes !== null) {
-        const res = await axios.post(`http://localhost:8000/resources/${id}/complete`, { conditionNotes: notes })
+        const res = await axios.post(`https://sharehackathon-sork.vercel.app
+/resources/${id}/complete`, { conditionNotes: notes })
         setToast({ show: true, msg: `Item returned! Your Trust Score is now ${res.data.newTrustScore}`, type: 'success' })
         fetchData()
       }

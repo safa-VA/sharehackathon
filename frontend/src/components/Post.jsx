@@ -28,7 +28,8 @@ function Post({ user, onPosted }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post('http://localhost:8000/resources', {
+      await axios.post('https://sharehackathon-sork.vercel.app
+/resources', {
         ...form,
         ownerId: user._id || user.id,
         ownerName: user.fullName

@@ -8,7 +8,8 @@ function Login({ onLoginSuccess }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:8000/login', formData)
+      const res = await axios.post('https://sharehackathon-sork.vercel.app
+/login', formData)
       setMessage('✅ ' + res.data.message)
       // Store the token and user info
       localStorage.setItem('token', res.data.token)

@@ -8,7 +8,8 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:8000/register', formData)
+      const res = await axios.post('https://sharehackathon-sork.vercel.app
+/register', formData)
       setMessage('✅ ' + res.data.message)
     } catch (err) {
       setMessage('❌ ' + (err.response?.data?.message || 'Error'))

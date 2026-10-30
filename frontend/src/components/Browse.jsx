@@ -15,14 +15,16 @@ function Browse({ user }) {
 
   const fetchResources = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/resources')
+      const res = await axios.get('https://sharehackathon-sork.vercel.app
+/resources')
       setResources(res.data)
     } catch (err) { console.error(err) }
   }
 
   const handleRequest = async (id, title) => {
     try {
-      await axios.post(`http://localhost:8000/resources/${id}/request`, { 
+      await axios.post(`https://sharehackathon-sork.vercel.app
+/resources/${id}/request`, { 
         requesterName: user.fullName, 
         requesterId: user._id || user.id 
       })
@@ -34,7 +36,8 @@ function Browse({ user }) {
   // NEW: Student Check-in function
   const handleCheckIn = async (id, title, ownerName) => {
     try {
-      await axios.post(`http://localhost:8000/resources/${id}/checkin`)
+      await axios.post(`https://sharehackathon-sork.vercel.app
+/resources/${id}/checkin`)
       alert(`✅ You confirmed you picked up "${title}"! The owner has been notified.`)
       fetchResources()
     } catch (err) { alert('❌ Error checking in') }
