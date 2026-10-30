@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('./models/User');
-const Resource = require('./models/Resource');
+
+// FIX: Updated paths to find the models inside the backend folder
+const User = require('../backend/models/User');
+const Resource = require('../backend/models/Resource');
 
 dotenv.config();
 
@@ -173,5 +175,5 @@ app.get('/', (req, res) => {
     res.json({ message: "ShareSpace Backend is running!" });
 });
 
-// --- VERCEL SERVERLESS EXPORT (Replaces app.listen) ---
+// --- VERCEL SERVERLESS EXPORT ---
 module.exports = app;
