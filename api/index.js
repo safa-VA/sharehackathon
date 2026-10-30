@@ -5,9 +5,9 @@ const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-// FIX: Updated paths to find the models inside the backend folder
-const User = require('../backend/models/User');
-const Resource = require('../backend/models/Resource');
+// FIXED: Now looking for models in the correct location
+const User = require('./models/User');
+const Resource = require('./models/Resource');
 
 dotenv.config();
 
